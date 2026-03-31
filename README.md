@@ -182,7 +182,7 @@ pip install fastapi uvicorn pandas numpy xgboost scikit-learn
 
 ### 2. Download the dataset
 
-Get the Instacart Market Basket Analysis dataset from [Kaggle](https://www.kaggle.com/competitions/instacart-market-basket-analysis/data).
+Get the Instacart Market Basket Analysis dataset from [Kaggle](https://www.kaggle.com/datasets/yasserh/instacart-online-grocery-basket-analysis-dataset).
 
 Required files:
 ```
@@ -281,6 +281,7 @@ critical_restock_list.columns:
 | 🟠 High | 11 – 20 units | Order within 48 hours |
 | 🔵 Medium | 5 – 10 units | Order this week |
 | 🟢 Low | 1 – 4 units | Schedule for next cycle |
+<<<<<<< HEAD
 
 ---
 
@@ -305,3 +306,5 @@ Built as a final year MCA project — specifically designed to solve real demand
 ## 📄 License
 
 MIT License — free to use, modify, and build on.
+=======
+>>>>>>> e42db4a21d837fbe72ad77f7d46857459f0d6e6f
