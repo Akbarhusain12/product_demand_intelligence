@@ -3,7 +3,8 @@ pandas
 numpy
 plotly
 openpyxl
-flask-cors
+fastapi
+uvicorn
 xgboost 
 scikit-learn 
 matplotlib

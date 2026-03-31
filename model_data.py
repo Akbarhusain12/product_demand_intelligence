@@ -1,7 +1,7 @@
 """
-data_pipeline.py
+model_data.py
 ----------------
-End-to-end Baby Product Demand Prediction pipeline using XGBoost.
+End-to-end Product Demand Prediction pipeline using XGBoost.
 
 Pipeline steps:
     1.  load_data(data_dir)
@@ -17,7 +17,7 @@ Pipeline steps:
     11. generate_restock_action_board(final_predictions, baby_product_ids)
 
 Install:
-    pip install flask flask-cors pandas numpy xgboost scikit-learn
+    pip install pandas numpy xgboost scikit-learn
 """
 
 import os
@@ -546,7 +546,7 @@ def generate_restock_action_board(
 
 
 # ---------------------------------------------------------------------------
-# Master Pipeline — single entry-point for Flask
+# Master Pipeline — single entry-point for FastAPI
 # ---------------------------------------------------------------------------
 
 def run_full_pipeline(data_dir: str) -> dict:

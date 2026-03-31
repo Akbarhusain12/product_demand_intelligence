@@ -1,19 +1,19 @@
-# 🍼 Peeko — Baby Product Demand Intelligence
+# � Product Demand Intelligence
 
-> **XGBoost-powered demand forecasting and restock prediction system for quick commerce baby products.**  
-> Predicts when each customer will next purchase each baby product — aggregates into a live restock action board.
+> **XGBoost-powered demand forecasting and restock prediction system.**  
+> Predicts when each customer will next purchase each product — aggregates into a live restock action board.
 
 ---
 
 ## 📸 Project Overview
 
-Peeko Demand Intelligence is an end-to-end machine learning pipeline built on the **Instacart Market Basket Analysis** dataset. It learns each customer's personal repurchase rhythm for baby products and projects future demand onto a real calendar — then compares that against inventory to surface exactly what needs to be ordered, and when.
+Product Demand Intelligence is an end-to-end machine learning pipeline built on the **Instacart Market Basket Analysis** dataset. It learns each customer's personal repurchase rhythm for products and projects future demand onto a real calendar — then compares that against inventory to surface exactly what needs to be ordered, and when.
 
 ```
 Purchase History  →  XGBoost Model  →  Demand Forecast  →  Restock Action Board
 ```
 
-**Built for:** Quick commerce companies selling baby products who need to stay ahead of stockouts.
+**Built for:** Quick commerce companies who need to stay ahead of stockouts and optimize inventory.
 
 ---
 
@@ -22,7 +22,7 @@ Purchase History  →  XGBoost Model  →  Demand Forecast  →  Restock Action 
 ```
 peeko/
 ├── data_pipeline.py     # Full 11-step ML pipeline (XGBoost integrated)
-├── app.py               # Flask REST API — serves dashboard + JSON endpoints
+├── app.py               # FastAPI REST API — serves dashboard + JSON endpoints
 ├── index.html           # Live dashboard — Chart.js, sortable table, model metrics
 ├── data_gen.ipynb       # Jupyter notebook — step-by-step walkthrough with plots
 └── README.md
@@ -132,7 +132,7 @@ xgb.XGBRegressor(
 
 ---
 
-## 🌐 Flask API
+## 🌐 FastAPI Server
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -177,7 +177,7 @@ curl -X POST http://127.0.0.1:5000/api/restock/custom-inventory \
 ### 1. Install dependencies
 
 ```bash
-pip install flask flask-cors pandas numpy xgboost scikit-learn
+pip install fastapi uvicorn pandas numpy xgboost scikit-learn
 ```
 
 ### 2. Download the dataset
@@ -252,11 +252,11 @@ Run cells top-to-bottom. Steps 1–5 must complete before Steps 6–14.
 | Data processing | Python + Pandas | Industry standard for tabular data at scale |
 | ML model | XGBoost | Best performance on tabular regression; built-in regularisation |
 | Train/test split | scikit-learn `GroupShuffleSplit` | Prevents user-level data leakage |
-| Web framework | Flask | Minimal overhead for a small, well-defined API |
-| CORS | flask-cors | Required for local file development |
+| Web framework | FastAPI | High-performance async Python web framework |
+| CORS | FastAPI middleware | Built-in support for cross-origin requests |
 | Charting | Chart.js | Zero-build-step CDN charting |
 | Fonts | DM Sans + DM Mono | Clean, readable; monospace for data values |
-| Frontend | Vanilla HTML/CSS/JS | No framework; served directly by Flask |
+| Frontend | Vanilla HTML/CSS/JS | No framework; served directly by FastAPI |
 | Notebook | Jupyter | Step-by-step exploration and validation |
 
 ---
@@ -298,7 +298,7 @@ critical_restock_list.columns:
 
 ## 👤 Author
 
-Built as a final year MCA project — specifically designed to solve real demand forecasting challenges in quick commerce baby product delivery.
+Built as a final year MCA project — specifically designed to solve real demand forecasting challenges in quick commerce.
 
 ---
 

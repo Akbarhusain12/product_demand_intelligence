@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peeko — Demand Intelligence</title>
+    <title>Demand Intelligence Control Tower</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap"
@@ -19,15 +19,15 @@
         padding: 0;
       }
       :root {
-        --bg: #f7f7f5;
+        --bg: #ffffff;
         --white: #ffffff;
         --border: #e8e8e4;
         --border2: #d4d4ce;
-        --text: #1a1a18;
-        --muted: #888880;
-        --soft: #b8b8b0;
-        --accent: #2d6a4f;
-        --acc-lt: #e8f4ef;
+        --text: #000000;
+        --muted: #52525b;
+        --soft: #a1a1aa;
+        --accent: #facc15;
+        --acc-lt: #fef9c3;
         --warn: #c0392b;
         --warn-lt: #fdf0ee;
         --amber: #b45309;
@@ -180,13 +180,13 @@
         background: var(--bg);
       }
       .btn-primary {
-        background: var(--accent);
-        border-color: var(--accent);
+        background: var(--text);
+        border-color: var(--text);
         color: #fff;
       }
       .btn-primary:hover {
-        background: #235c43;
-        border-color: #235c43;
+        background: #3f3f46;
+        border-color: #3f3f46;
       }
 
       /* ── KPI GRID ── */
@@ -237,7 +237,7 @@
       .kpi-card.warn .kpi-value {
         color: var(--warn);
       }
-      .kpi-card.green .kpi-value {
+      .kpi-card.yellow .kpi-value {
         color: var(--accent);
       }
 
@@ -258,7 +258,7 @@
         font-weight: 600;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: var(--white);
+        color: var(--text);
         background: var(--accent);
         padding: 3px 10px;
         border-radius: 4px;
@@ -345,8 +345,8 @@
         border-color: var(--border2);
       }
       .range-btn.active {
-        background: var(--accent);
-        border-color: var(--accent);
+        background: var(--text);
+        border-color: var(--text);
         color: #fff;
       }
 
@@ -475,9 +475,9 @@
         background: var(--blue-lt);
         color: var(--blue);
       }
-      .pill-green {
+      .pill-yellow {
         background: var(--acc-lt);
-        color: var(--accent);
+        color: #ca8a04;
       }
 
       /* ── BAR ── */
@@ -677,8 +677,6 @@
     <!-- ════ NAV ════ -->
     <nav>
       <div class="nav-left">
-        <div class="brand-dot"></div>
-        <span class="brand-name">Peeko</span>
         <div class="brand-sep"></div>
         <span class="brand-sub">Demand Intelligence</span>
       </div>
@@ -695,7 +693,7 @@
       <!-- ════ HEADER ════ -->
       <div class="page-header fi">
         <div>
-          <div class="page-title">Baby Product Demand Forecast</div>
+          <div class="page-title">Product Demand Forecast</div>
           <div class="page-desc">
             XGBoost-powered reorder predictions · purchase history → demand
             forecast → restock action board
@@ -712,7 +710,7 @@
       <!-- ════ KPI CARDS ════ -->
       <div class="kpi-grid fi d2">
         <div class="kpi-card">
-          <div class="kpi-label">Baby SKUs Tracked</div>
+          <div class="kpi-label">SKUs Tracked</div>
           <div class="kpi-value" id="kpi-skus">—</div>
           <div class="kpi-meta">department_id = 18</div>
         </div>
@@ -731,7 +729,7 @@
           <div class="kpi-value" id="kpi-avg">—</div>
           <div class="kpi-meta">across critical SKUs</div>
         </div>
-        <div class="kpi-card green">
+        <div class="kpi-card yellow">
           <div class="kpi-label">Forecast Horizon</div>
           <div class="kpi-value" id="kpi-horizon">—</div>
           <div class="kpi-meta">days from today</div>
@@ -897,7 +895,7 @@
                 </div>
                 <div class="stat-row">
                   <span class="stat-label"
-                    ><span class="pill pill-green">Low</span> 1–4 units</span
+                    ><span class="pill pill-yellow">Low</span> 1–4 units</span
                   >
                   <span class="stat-val" id="urg-low">—</span>
                 </div>
@@ -912,7 +910,7 @@
     <!-- ════ FOOTER ════ -->
     <footer>
       <span
-        >Peeko · XGBoost Demand Intelligence · <span id="footerYear"></span
+        >XGBoost Demand Intelligence · <span id="footerYear"></span
       ></span>
       <div class="footer-links">
         <a href="/api/health" target="_blank">Health</a>
@@ -1143,11 +1141,11 @@
               {
                 label: "Demand Units",
                 data: [],
-                backgroundColor: "#d1e9df",
-                borderColor: "#2d6a4f",
+                backgroundColor: "#fef08a",
+                borderColor: "#eab308",
                 borderWidth: 1.5,
                 borderRadius: 3,
-                hoverBackgroundColor: "#b7ddd0",
+                hoverBackgroundColor: "#fde047",
               },
             ],
           },
@@ -1158,11 +1156,11 @@
             plugins: {
               legend: { display: false },
               tooltip: {
-                backgroundColor: "#fff",
+                backgroundColor: "#ffffff",
                 borderColor: "#e8e8e4",
                 borderWidth: 1,
-                titleColor: "#1a1a18",
-                bodyColor: "#888880",
+                titleColor: "#000000",
+                bodyColor: "#52525b",
                 padding: 10,
                 callbacks: {
                   title: (i) => i[0].label,
@@ -1173,7 +1171,7 @@
             scales: {
               x: {
                 ticks: {
-                  color: "#b8b8b0",
+                  color: "#a1a1aa",
                   font: { family: "DM Mono", size: 10 },
                   maxTicksLimit: 14,
                   callback: function (v) {
@@ -1181,14 +1179,14 @@
                     return l ? l.slice(5) : "";
                   },
                 },
-                grid: { color: "#f0f0ec" },
+                grid: { color: "#f4f4f5" },
               },
               y: {
                 ticks: {
-                  color: "#b8b8b0",
+                  color: "#a1a1aa",
                   font: { family: "DM Mono", size: 10 },
                 },
-                grid: { color: "#f0f0ec" },
+                grid: { color: "#f4f4f5" },
               },
             },
           },
@@ -1218,7 +1216,7 @@
         if (n > 20) return `<span class="pill pill-red">Critical</span>`;
         if (n > 10) return `<span class="pill pill-amber">High</span>`;
         if (n >= 5) return `<span class="pill pill-blue">Medium</span>`;
-        return `<span class="pill pill-green">Low</span>`;
+        return `<span class="pill pill-yellow">Low</span>`;
       }
       function barColor(n) {
         if (n > 20) return "var(--warn)";
@@ -1363,7 +1361,7 @@
         ].join("\n");
         const a = document.createElement("a");
         a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
-        a.download = `peeko_restock_${new Date().toISOString().split("T")[0]}.csv`;
+        a.download = `restock_${new Date().toISOString().split("T")[0]}.csv`;
         a.click();
         toast("Exported restock CSV");
       }
