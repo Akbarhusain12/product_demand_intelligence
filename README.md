@@ -20,11 +20,18 @@ Purchase History  →  XGBoost Model  →  Demand Forecast  →  Restock Action 
 ## 🏗️ Architecture
 
 ```
-peeko/
-├── data_pipeline.py     # Full 11-step ML pipeline (XGBoost integrated)
+product-demand-intelligence/
 ├── app.py               # FastAPI REST API — serves dashboard + JSON endpoints
+├── model_data.py        # Full 11-step ML pipeline (XGBoost integrated)
 ├── index.html           # Live dashboard — Chart.js, sortable table, model metrics
 ├── data_gen.ipynb       # Jupyter notebook — step-by-step walkthrough with plots
+├── data/                # Instacart CSV files (add these before running)
+│   ├── products.csv
+│   ├── orders.csv
+│   ├── order_products__prior.csv
+│   ├── order_products__train.csv
+│   ├── departments.csv
+│   └── aisles.csv
 └── README.md
 ```
 
@@ -177,7 +184,7 @@ curl -X POST http://127.0.0.1:5000/api/restock/custom-inventory \
 ### 1. Install dependencies
 
 ```bash
-pip install fastapi uvicorn pandas numpy xgboost scikit-learn
+pip install -r requirements.txt
 ```
 
 ### 2. Download the dataset
@@ -194,18 +201,31 @@ departments.csv
 aisles.csv
 ```
 
-### 3. Update the data path
+### 3. Set up the data folder
 
-In `app.py`, line 21:
+Create a `data/` directory in the project root and place all 6 CSV files inside:
 
-```python
-DATA_DIR = "path/to/your/instacart/data"
 ```
+project-demand-intelligence/
+├── app.py
+├── model_data.py
+├── index.html
+├── data/
+│   ├── products.csv
+│   ├── orders.csv
+│   ├── order_products__prior.csv
+│   ├── order_products__train.csv
+│   ├── departments.csv
+│   └── aisles.csv
+└── README.md
+```
+
+The app automatically resolves the path — no code edits needed.
 
 ### 4. Run
 
 ```bash
-python app.py
+uvicorn app:app --reload --host 0.0.0.0 --port 5000
 ```
 
 Open → `http://127.0.0.1:5000`

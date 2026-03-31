@@ -19,8 +19,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Update this path to your CSV folder before running ───────────────────────
-DATA_DIR = "D:/MCA/Project/DI/Data"
+# ── Relative path resolves correctly on any machine (Windows, Mac, Linux) ───
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
 # ---------------------------------------------------------------------------
 # Session cache — pipeline runs once on first request

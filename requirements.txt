@@ -1,10 +1,6 @@
-streamlit
-pandas
-numpy
-plotly
-openpyxl
 fastapi
 uvicorn
-xgboost 
-scikit-learn 
-matplotlib
+pandas
+numpy
+xgboost
+scikit-learn

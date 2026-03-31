@@ -1,5 +1,5 @@
-Data/
-divenv/
+data/
+peekovenv/
 __pycache__/
 *.pyc
 Peeko.mp4
