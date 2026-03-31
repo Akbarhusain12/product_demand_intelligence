@@ -1,26 +1,3 @@
-"""
-app.py
-------
-FastAPI server for the Product Demand Intelligence system (XGBoost).
-
-Install:
-    pip install fastapi uvicorn pandas numpy xgboost scikit-learn
-
-Endpoints:
-    GET  /                              - serves the dashboard (index.html)
-    GET  /api/health                    - liveness check + model metrics
-    GET  /api/predictions               - full demand forecast
-    GET  /api/predictions?limit=N       - top N forecast rows
-    GET  /api/restock                   - restock action board
-    GET  /api/restock?limit=N           - top N critical SKUs
-    POST /api/restock/custom-inventory  - restock with real inventory data
-    GET  /api/model-metrics             - detailed XGBoost evaluation metrics
-
-Run:
-    uvicorn app:app --reload --host 0.0.0.0 --port 5000
-    open http://127.0.0.1:5000
-"""
-
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
