@@ -1,4 +1,5 @@
 data/
+divenv/
 peekovenv/
 __pycache__/
 *.pyc
